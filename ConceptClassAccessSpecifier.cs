@@ -5,7 +5,7 @@ using System.Text;
 namespace OmAnandDemo
 {
 
-    /*This is my First Project*/
+    /*This is my First Project - C# Console Application*/
     public class ConceptClassAccessSpecifier
     {
     }
