@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace OmAnandDemo
-{
-
+{ 
     /*This is my First Project - C# Console Application*/
     public class ConceptClassAccessSpecifier
     {
+   
+
+
+
     }
 
     public class DepartmentDemo001
@@ -39,16 +42,24 @@ namespace OmAnandDemo
             /*Default or Parameterless */
                 public DepartmentDemo001()
                 {
+                    this.departmentId = 1;
+                    this.departmentCode = "CS01";
+                    this.departmentName = "Computer Science";
+                    this.departmentEstablishedDate = new DateTime(2018, 10, 10);
 
+                    Console.WriteLine($"Department ID: {departmentId}, Department Code: {departmentCode}, Department Name: {departmentName}, Department Established Date: {departmentEstablishedDate}");
                 }
 
 
             /*Parameterized Constructor */
-                public DepartmentDemo001(int deptId, string deptCode,string deptName)
+                public DepartmentDemo001(int deptId, string deptCode,string deptName, DateTime deptEstablishedDate)
                 {
                     departmentId = deptId;
                     departmentCode = deptCode;
                     departmentName = deptName;
+                    departmentEstablishedDate = deptEstablishedDate;
+
+                    Console.WriteLine($"Department ID: {departmentId}, Department Code: {departmentCode}, Department Name: {departmentName}, Department Established Date: {departmentEstablishedDate}");
                 }
 
     /* Constructor ends - Default or Parameterless */
@@ -59,17 +70,16 @@ namespace OmAnandDemo
 
                 private void displayDepartmentDetails()
                 {
-                    departmentId = 110;
-                    departmentCode = "CS";
-                    departmentEstablishedDate = new DateTime(2015, 3, 10);
-                    departmentSalary = 60000.00m;
+                    departmentId = 3;
+                    departmentCode = "MechDept";
                     departmentName = "Computer Science";
-
+                    departmentEstablishedDate = new DateTime(2020, 10, 10);
+                  
                     Console.WriteLine("Department ID: " + departmentId);
                     Console.WriteLine("Department Code: " + departmentCode);
-                    Console.WriteLine("Department Established Date: " + departmentEstablishedDate);
-                    Console.WriteLine("Department Salary: " + departmentSalary);
                     Console.WriteLine("Department Name: " + departmentName);
+                    Console.WriteLine("Department Established Date: " + departmentEstablishedDate);
+                    
                 }
 
                 protected void displayDepartmentCode()
@@ -107,7 +117,16 @@ namespace OmAnandDemo
 
         static void Main(string[] args)
         {
+            /*This is the default constructor call
+             Default Constructor is called when no parameters are passed to the constructor. It initializes the object with default values. */
             DepartmentDemo001 dept = new DepartmentDemo001();
+
+            /*This is the parameterized constructor call
+            Parameterized Constructor is called when parameters are passed to the constructor. It initializes the object with the provided values.*/
+            DepartmentDemo001 deptDemo = new DepartmentDemo001(2, "IT01", "Information Technology", new DateTime(2022, 10, 10));
+
+
+
             dept.displayDepartmentDetails();
 
         }
