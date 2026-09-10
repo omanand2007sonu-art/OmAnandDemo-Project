@@ -25,7 +25,7 @@ namespace OmAnandDemo
                 /*Concept of encapsulation */
                 public int DeptId
                 {
-                    get { return departmentId; }; 
+                    get { return departmentId; } 
                     set { departmentId = value; } 
         
                 }
