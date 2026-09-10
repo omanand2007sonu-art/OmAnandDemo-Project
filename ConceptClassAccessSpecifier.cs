@@ -20,6 +20,15 @@ namespace OmAnandDemo
 
                 /*Private Field*/
                 private int departmentId;
+                
+
+                /*Concept of encapsulation */
+                public int DeptId
+                {
+                    get { return departmentId; }; 
+                    set { departmentId = value; } 
+        
+                }
 
                 /*Protected Field*/
                 protected string departmentCode = string.Empty;
@@ -172,6 +181,10 @@ namespace OmAnandDemo
 
             emp.employeeDepartment = "IT";
             emp.employeePhoneNumber = 1234567890;
+
+            
+            Console.WriteLine("Employee ID: " + emp.employeeId + "Department Id" + dept.DeptId);
+
 
             emp.displayEmployeeDepartmentDetails("IT");
 
