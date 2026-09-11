@@ -107,7 +107,7 @@ namespace OmAnandDemo
         static void Main(string[] args)
         {
             VoterIdRegistration voter3 = new VoterIdRegistration();
-            voter3.displayConsolidatedVoterName();
+            //voter3.displayConsolidatedVoterName();
             voter3.displayVoterDetails();
             
 
