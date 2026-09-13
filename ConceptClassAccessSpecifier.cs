@@ -16,37 +16,51 @@ namespace OmAnandDemo
     public class DepartmentDemo001
     {
 
-    /* 1. Field = Variable */
+        /*  1. Field = Data = Variable 
+            2. Property = Getters and Setters
+            3. Constructor = It will initialize the variables with their default value
+            4. Method = Function
 
-                /*Private Field*/
-                private int departmentId;
+        */
+
+        /* Access Specifiers: 
+           1. Private: Accessible only within the class.
+           2. Protected: Accessible within the class and its derived classes.
+           3.  Internal: Accessible within the same assembly.
+           4. Protected Internal: Accessible within the same assembly and derived classes.
+           5. Public: Accessible from anywhere.
+
+       */
+        
+        
+        private int departmentId;
                 
 
-                /*Concept of encapsulation */
-                public int DeptId
-                {
-                    get { return departmentId; } 
-                    set { departmentId = value; } 
+        /*Concept of encapsulation using Property */
+        public int DeptId
+        {
+            get { return departmentId; } 
+            set { departmentId = value; } 
         
-                }
+        }
 
-                /*Protected Field*/
-                protected string departmentCode = string.Empty;
+        /*Protected Field*/
+        protected string departmentCode = string.Empty;
 
-                /*Internal Field*/
-                internal DateTime departmentEstablishedDate;
+        /*Internal Field*/
+        internal DateTime departmentEstablishedDate;
 
-                /*Protected Internal Field*/
-                protected internal decimal departmentSalary;
+        /*Protected Internal Field*/
+        protected internal decimal departmentSalary;
 
-                /*Public Field*/
-                public string departmentName = string.Empty;
+        /*Public Field*/
+        public string departmentName = string.Empty;
 
 
     /* Field Ends */
 
 
-    /* 2. Constructor starts */
+    /* 2. Constructor = It will initialize the variables with their default value */
 
             /*Default or Parameterless */
                 public DepartmentDemo001()
@@ -138,6 +152,8 @@ namespace OmAnandDemo
 
             dept.displayDepartmentDetails();
 
+            
+
         }
 
 
@@ -147,7 +163,7 @@ namespace OmAnandDemo
     /* Main Method ends */
 
 
-
+   
     public class EmployeeDemo001 : DepartmentDemo001
     {
         private int employeeId;

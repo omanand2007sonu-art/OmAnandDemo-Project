@@ -5,18 +5,34 @@ using System.Text;
 
 namespace OmAnandDemo
 {
-    internal class VoterIdRegistration
+    public class VoterIdRegistration
     {
         public string? _voterName;
-        public string _voterFatherName = string.Empty;
-        public string _voterMotherName = string.Empty;
-        public DateTime _voterDateOfBirth = DateTime.MinValue;
+
+        private string? _voterAadharNumber = string.Empty;
+
+        public string VIDNumber
+        {
+            get { 
+                    if(string.IsNullOrEmpty(_voterAadharNumber))
+                    {
+                        return "Aadhar Number is not set.";
+                    }
+                    return _voterAadharNumber; 
+                }
+            set { _voterAadharNumber = value; }
+        }
+
+        protected string? _voterFatherName = string.Empty;
+        protected string? _voterMotherName = string.Empty;
+        protected internal DateTime _voterDateOfBirth = DateTime.MinValue;
         public string _voterVillageName = string.Empty;
+
         public string _voterBlockName = string.Empty;
         public int _wardNumber = 0;
         public string _voterDistrictName = string.Empty;
-        public long _voterAadharNumber = 0;
-        public long _voterPhoneNumber = 0;
+        
+        private long _voterPhoneNumber = 0;
 
         public string _voterPinCode = string.Empty;
 
@@ -25,7 +41,7 @@ namespace OmAnandDemo
 
         }
 
-        public VoterIdRegistration(string voterName, string voterFatherName, string voterMotherName, DateTime voterDateOfBirth, string voterVillageName, string voterBlockName, int wardNumber, string voterDistrictName, long voterAadharNumber, long voterPhoneNumber, string voterPinCode)
+        public VoterIdRegistration( string voterName, string voterAadharNumber, string voterFatherName, string voterMotherName, DateTime voterDateOfBirth, string voterVillageName, string voterBlockName, int wardNumber, string voterDistrictName, long voterPhoneNumber, string voterPinCode)
         {
             _voterName = voterName;
             _voterFatherName = voterFatherName;
@@ -55,7 +71,7 @@ namespace OmAnandDemo
                 _voterBlockName = "Beldaur";
                 _wardNumber = 8;
                 _voterDistrictName = "Khagaria";
-                _voterAadharNumber = 123456789012;
+                _voterAadharNumber = "123456789012";
                 _voterPhoneNumber = 1234567890;
 
                 Console.WriteLine($"Voter Name: {_voterName} Father Name {_voterFatherName} Mother Name {_voterMotherName} Date of Birth: {_voterDateOfBirth} Village: {_voterVillageName} Block: {_voterBlockName} Ward: {_wardNumber} District: {_voterDistrictName} Aadhar Number: {_voterAadharNumber} Phone Number: {_voterPhoneNumber}");
@@ -71,7 +87,7 @@ namespace OmAnandDemo
                 _voterBlockName = "Beldaur";
                 _wardNumber = 8;
                 _voterDistrictName = "Khagaria";
-                _voterAadharNumber = 39865756833;
+                _voterAadharNumber = "39865756833";
                 _voterPhoneNumber = 1234567889;
                 Console.WriteLine($"Voter Name: {_voterName} Father Name {_voterFatherName} Mother Name {_voterMotherName} Date of Birth: {_voterDateOfBirth} Village: {_voterVillageName} Block: {_voterBlockName} Ward: {_wardNumber} District: {_voterDistrictName} Aadhar Number: {_voterAadharNumber} Phone Number: {_voterPhoneNumber}");
             }
@@ -109,10 +125,6 @@ namespace OmAnandDemo
             VoterIdRegistration voter3 = new VoterIdRegistration();
             //voter3.displayConsolidatedVoterName();
             voter3.displayVoterDetails();
-            
-
-   
-           
 
             Console.ReadKey();
 

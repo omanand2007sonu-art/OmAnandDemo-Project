@@ -5,7 +5,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>OmAnandDemo.ScopeOfVariableDemo</StartupObject>
+    <StartupObject>OmAnandDemo.VoterIdRegistrationDemo</StartupObject>
   </PropertyGroup>
 
 </Project>
