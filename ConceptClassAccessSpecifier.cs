@@ -2,22 +2,50 @@
 using System.Collections.Generic;
 using System.Text;
 
+/*  what are 'using' statements?
+ 
+    These "using" Statements are "Importing Namespaces"/ "Inbuilt libraries" given by Microsoft.
+    In the Library of Our Language i.e. "Base Class Libraries",there are so many pre-defined Classes and 
+    All those classes are defined under Some namespaces.
+    Hence, To Consume those classes in our Code,we need to import those Namespaces.
+    e.g. 'System' Namespace has hundreds of Classes defined under it and it is important for us to use these Namespaces.
+    System and various other packages here actually provide us the ability to import classes predefined under them.
+
+
+
+    what is a namespace?
+    namespace is a 'logical' Container of 'Types'.
+    It is called Logical Container because it does not have a Physical Existence.
+    Generally we use it for Grouping the Items. 
+    e.g. Folders in our Operating Systems are Containers for Storing Files.
+    Files have Physical Existence but are grouped inside Folders.
+    Similarly Our .NET Programming Languages are provided with Logical Containers called 'Namespace'.
+    Suppose we have Ten Classes in our Project, we can group it into Two Containers.
+
+    So we can group five-five classes under Two Namespaces.
+    By default the name of Namespace is Project name itself but we can change that also.
+
+
+
+ 
+ */
+
+
 namespace OmAnandDemo
-{ 
-    /*This is my First Project - C# Console Application*/
-    public class ConceptClassAccessSpecifier
+{
+    /*This is my First Project - C# Console Application
+     
+    The Default Access Specifier for a class is internal. It means that the class is accessible only within the same assembly. 
+    If you want to make a class accessible from other assemblies, you need to use the public access specifier.
+     
+     
+     */
+    internal class ConceptClassAccessSpecifier
     {
-   
-
-
-
-    }
-
-    public class DepartmentDemo001
-    {
+  
 
         /*  1. Field = Data = Variable 
-            2. Property = Getters and Setters
+            2. Property = Getters and Setters = Used to Impelment 'Encapsulation'
             3. Constructor = It will initialize the variables with their default value
             4. Method = Function
 
@@ -26,13 +54,13 @@ namespace OmAnandDemo
         /* Access Specifiers: 
            1. Private: Accessible only within the class.
            2. Protected: Accessible within the class and its derived classes.
-           3.  Internal: Accessible within the same assembly.
+           3. Internal: Accessible within the same assembly.
            4. Protected Internal: Accessible within the same assembly and derived classes.
            5. Public: Accessible from anywhere.
 
        */
-        
-        
+
+
         private int departmentId;
                 
 
@@ -57,13 +85,11 @@ namespace OmAnandDemo
         public string departmentName = string.Empty;
 
 
-    /* Field Ends */
 
-
-    /* 2. Constructor = It will initialize the variables with their default value */
+        /* 3. Constructor = It will initialize the variables with their default value */
 
             /*Default or Parameterless */
-                public DepartmentDemo001()
+                public ConceptClassAccessSpecifier()
                 {
                     this.departmentId = 1;
                     this.departmentCode = "CS01";
@@ -75,12 +101,12 @@ namespace OmAnandDemo
 
 
             /*Parameterized Constructor */
-                public DepartmentDemo001(int deptId, string deptCode,string deptName, DateTime deptEstablishedDate)
+                public ConceptClassAccessSpecifier(int deptId, string deptCode,string deptName, DateTime deptEstablishedDate, decimal deptSalary)
                 {
-                    departmentId = deptId;
-                    departmentCode = deptCode;
-                    departmentName = deptName;
-                    departmentEstablishedDate = deptEstablishedDate;
+                    this.departmentId = deptId;
+                    this.departmentCode = deptCode;
+                    this.departmentName = deptName;
+                    this.departmentEstablishedDate = deptEstablishedDate;
 
                     Console.WriteLine($"Department ID: {departmentId}, Department Code: {departmentCode}, Department Name: {departmentName}, Department Established Date: {departmentEstablishedDate}");
                 }
@@ -98,11 +124,8 @@ namespace OmAnandDemo
                     departmentName = "Computer Science";
                     departmentEstablishedDate = new DateTime(2020, 10, 10);
                   
-                    Console.WriteLine("Department ID: " + departmentId);
-                    Console.WriteLine("Department Code: " + departmentCode);
-                    Console.WriteLine("Department Name: " + departmentName);
-                    Console.WriteLine("Department Established Date: " + departmentEstablishedDate);
-                    
+                    Console.WriteLine($"Department ID: {departmentId}, Department Code: {departmentCode}, Department Name: {departmentName}, Department Established Date: {departmentEstablishedDate}");
+
                 }
 
                 protected void displayDepartmentCode()
@@ -133,20 +156,26 @@ namespace OmAnandDemo
 
 
 
-        /* Method Ends */
 
 
-    /* 4. Main Method starts */
+
+        /* Main Method starts 
+     
+           It is the Entry point of the Project.
+     
+           when an Object of this Class will be created, the Compiler will look for the Main Method and will execute the code written inside it. 
+     
+        */
 
         static void Main(string[] args)
         {
             /*This is the default constructor call
              Default Constructor is called when no parameters are passed to the constructor. It initializes the object with default values. */
-            DepartmentDemo001 dept = new DepartmentDemo001();
+            ConceptClassAccessSpecifier dept = new ConceptClassAccessSpecifier();
 
             /*This is the parameterized constructor call
             Parameterized Constructor is called when parameters are passed to the constructor. It initializes the object with the provided values.*/
-            DepartmentDemo001 deptDemo = new DepartmentDemo001(2, "IT01", "Information Technology", new DateTime(2022, 10, 10));
+            ConceptClassAccessSpecifier deptDemo = new ConceptClassAccessSpecifier(2, "IT01", "Information Technology", new DateTime(2022, 10, 10),0);
 
 
 
@@ -159,51 +188,4 @@ namespace OmAnandDemo
 
     }
 
-
-    /* Main Method ends */
-
-
-   
-    public class EmployeeDemo001 : DepartmentDemo001
-    {
-        private int employeeId;
-        public string employeeName = string.Empty;
-        protected string employeeDepartment = string.Empty;
-
-        protected internal long employeePhoneNumber;
-
-        internal decimal employeeSalary;
-        private void displayEmployeeId()
-        {
-            Console.WriteLine("Employee ID: " + employeeId);
-        }
-        public void displayEmployeeDepartmentDetails(string deptName)
-        {
-            Console.WriteLine($"Employee Department Code : {departmentCode}, Employee Department Name: {deptName}");
-
-        }
-        public void displayEmployeeSalary(int empGrade)
-        {
-
-        }
-
-        static void Main(string[] args)
-        {
-            DepartmentDemo001 dept = new DepartmentDemo001();
-
-            EmployeeDemo001 emp = new EmployeeDemo001();
-            emp.employeeId = 1;
-            emp.employeeName = "Om Anand";
-
-            emp.employeeDepartment = "IT";
-            emp.employeePhoneNumber = 1234567890;
-
-            
-            Console.WriteLine("Employee ID: " + emp.employeeId + "Department Id" + dept.DeptId);
-
-
-            emp.displayEmployeeDepartmentDetails("IT");
-
-        }
-    }
 }
